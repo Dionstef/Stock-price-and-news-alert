@@ -13,7 +13,8 @@ NEWS_ENDPOINT = "https://newsapi.org/v2/everything"
 
 MY_EMAIL = "abc@gmail.com"  # Insert your e-mail address here ex abc@gmail.com
 MY_PASS = ""  # Insert your application password of your e-mail
-EMAIL_PROVIDER = "smtp.gmail.com"  # Insert your email provider ex smtp.gmail.com
+EMAIL_PROVIDER = "smtp.gmail.com"  # Insert your email provider ex smtp.gmail.com or smtp.mail.yahoo.com
+EMAIL_PORT = 587  # Insert the port of your email: 587 for gmail and 465 for yahoo
 
 # -------------------------------  STOCK PRICE -------------------------------#
 # Get the daily time series of the stock through the API
@@ -80,7 +81,7 @@ if abs(percentage_difference) >= 5:
     email_body = f"Here are the {articles_to_get} main articles of the day: \n\n" + '\n\n'.join(article_formatted)
 
     # Send the email
-    with smtplib.SMTP(EMAIL_PROVIDER, 587) as connection:
+    with smtplib.SMTP(EMAIL_PROVIDER, EMAIL_PORT) as connection:
         connection.starttls()
         connection.login(user=MY_EMAIL, password=MY_PASS)
         connection.sendmail(
