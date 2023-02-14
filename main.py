@@ -38,7 +38,7 @@ def get_inputs_from_GUI():
         return -1
 
 
-# -------------------------------  STOCK PRICE FUNCTION -------------------------------#
+# ------------------------------- STOCK PRICE FUNCTION -------------------------------#
 def get_stock_price_API():
     global percentage_difference
     # Get the daily time series of the stock through the API
@@ -75,7 +75,7 @@ def get_stock_price_API():
                             / price_of_the_day_before_yesterday * 100
 
 
-# -------------------------------  STOCK NEWS -------------------------------#
+# -------------------------------  STOCK NEWS FUNCTION-------------------------------#
 def get_stock_news_API():
     global articles_to_get, articles_formatted
     # Get today's articles
@@ -111,7 +111,7 @@ def get_stock_news_API():
         for article in sliced_list]
 
 
-# --------------------------------  SEND EMAIL -------------------------------#
+# -------------------------------- SEND EMAIL FUNCTION -------------------------------#
 def send_email():
 
     # Format subject to include 🔺 or 🔻 symbols depending on whether the price went up or down
